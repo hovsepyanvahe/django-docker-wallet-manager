@@ -8,6 +8,6 @@ class Wallet(models.Model):
 
 
 class Transaction(models.Model):
-    wallet = models.ForeignKey(Wallet, on_delete=models.CASCADE)
-    txid = models.CharField(max_length=100, unique=True)
+    wallet = models.ForeignKey(Wallet, on_delete=models.CASCADE, db_index=True)
+    txid = models.CharField(max_length=100, unique=True, db_index=True)
     amount = models.DecimalField(max_digits=18, decimal_places=2)

@@ -29,15 +29,15 @@ class APITests(TestCase):
         url = reverse('wallet-list-create')
         response = self.client.get(url)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(len(response.data), 1)
-        self.assertEqual(response.data[0]['label'], 'Test Wallet')
+        self.assertEqual(len(response.data.get('results')), 1)
+        self.assertEqual(response.data.get('results')[0]['label'], 'Test Wallet')
 
     def test_transaction_list_endpoint(self):
         url = reverse('transaction-list-create')
         response = self.client.get(url)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(len(response.data), 1)
-        self.assertEqual(response.data[0]['txid'], 'tx1')
+        self.assertEqual(len(response.data.get('results')), 1)
+        self.assertEqual(response.data.get('results')[0]['txid'], 'tx1')
 
     def test_wallet_create_endpoint(self):
         url = reverse('wallet-list-create')
