@@ -44,5 +44,3 @@ This will build the Docker images and start the containers for the project.
     ```
     docker-compose down
     ```
-
----
